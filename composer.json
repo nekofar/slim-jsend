@@ -16,6 +16,7 @@
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
         "escapestudios/symfony2-coding-standard": "^3.12",
+        "phpcompatibility/php-compatibility": "^9.3",
         "phpstan/phpstan": "^0.12.99",
         "phpstan/phpstan-phpunit": "^0.12.22",
         "phpunit/phpunit": "^9.5",
