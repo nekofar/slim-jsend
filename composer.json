@@ -22,5 +22,9 @@
             "name": "Milad Nekofar",
             "email": "milad@nekofar.com"
         }
-    ]
+    ],
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
 }
