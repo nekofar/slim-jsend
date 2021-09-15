@@ -14,6 +14,7 @@
         "slim/slim": "^4.8"
     },
     "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
         "phpstan/phpstan": "^0.12.99",
         "phpstan/phpstan-phpunit": "^0.12.22",
         "phpunit/phpunit": "^9.5",
