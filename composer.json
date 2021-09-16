@@ -11,11 +11,13 @@
     ],
     "require": {
         "php": "^7.3 || ^8.0",
+        "ext-json": "*",
         "slim/slim": "^4.8"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
         "escapestudios/symfony2-coding-standard": "^3.12",
+        "nekofar/dev-tools": "^1.0",
         "phpcompatibility/php-compatibility": "^9.3",
         "phpstan/phpstan": "^0.12.99",
         "phpstan/phpstan-phpunit": "^0.12.22",
