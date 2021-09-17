@@ -40,12 +40,5 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "non-feature-branches": [
-        "develop",
-        "bugfix/.*",
-        "hotfix/.*",
-        "feature/.*",
-        "release/.*"
-    ]
+    "prefer-stable": true
 }
