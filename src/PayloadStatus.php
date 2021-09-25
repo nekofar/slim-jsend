@@ -14,7 +14,7 @@ namespace Nekofar\Slim\JSend;
 /**
  *
  */
-class PayloadStatus
+final class PayloadStatus
 {
     public const STATUS_SUCCESS = 'success';
     public const STATUS_FAIL = 'fail';

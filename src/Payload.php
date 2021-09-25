@@ -16,7 +16,7 @@ use JsonSerializable;
 /**
  *
  */
-class Payload implements PayloadInterface, JsonSerializable
+final class Payload implements PayloadInterface, JsonSerializable
 {
     /**
      * @var PayloadStatus
