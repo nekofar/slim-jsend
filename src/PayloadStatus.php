@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nekofar\Slim\JSend\Payload;
+namespace Nekofar\Slim\JSend;
 
 /**
  *
