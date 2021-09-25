@@ -12,6 +12,7 @@
     "require": {
         "php": "^7.3 || ^8.0",
         "ext-json": "*",
+        "slim/psr7": "^1.5",
         "slim/slim": "^4.8"
     },
     "require-dev": {
