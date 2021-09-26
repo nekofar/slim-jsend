@@ -1,6 +1,29 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.4] - 2021-09-26
+
+### Features
+
+- Add new `fromResponse` method to create a new `Response` from another response.
+
+### Refactor
+
+- Replace `ResponseInterface` by psr interface
+
+## [1.0.0-alpha.3] - 2021-09-26
+
+### Features
+
+- Can inject a psr compatible response instead of base response
+
+## [1.0.0-alpha.2] - 2021-09-26
+
+### Miscellaneous Tasks
+
+- Ignore `git-cliff` and `infection` configs from export
+- Ignore `phpcs` and `phpstan` configs from export
+
 ## [1.0.0-alpha.1] - 2021-09-26
 
 ### Refactor
