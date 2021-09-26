@@ -21,5 +21,7 @@
     <!-- Exclude the Composer Vendor directory. -->
     <exclude-pattern>/vendor/*</exclude-pattern>
 
-    <rule ref="NekofarCodingStandard"/>
+    <rule ref="NekofarCodingStandard">
+        <exclude name="SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint.DisallowedMixedTypeHint" />
+    </rule>
 </ruleset>
