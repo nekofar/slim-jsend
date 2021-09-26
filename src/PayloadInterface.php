@@ -11,10 +11,12 @@ declare(strict_types=1);
 
 namespace Nekofar\Slim\JSend;
 
+use JsonSerializable;
+
 /**
  *
  */
-interface PayloadInterface
+interface PayloadInterface extends JsonSerializable
 {
 
 }

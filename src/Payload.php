@@ -11,12 +11,10 @@ declare(strict_types=1);
 
 namespace Nekofar\Slim\JSend;
 
-use JsonSerializable;
-
 /**
  *
  */
-final class Payload implements PayloadInterface, JsonSerializable
+final class Payload implements PayloadInterface
 {
     /**
      * @var PayloadStatus
