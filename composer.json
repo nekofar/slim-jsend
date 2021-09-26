@@ -41,5 +41,30 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "scripts": {
+        "infection": "infection",
+        "lint": "@scan",
+        "pest": "pest",
+        "phpcbf": "phpcbf",
+        "phpcs": "phpcs",
+        "phpstan": "phpstan analyse --no-progress --ansi --memory-limit 256M",
+        "scan": [
+            "@phpcs",
+            "@phpstan"
+        ],
+        "test": [
+            "@scan",
+            "@pest"
+        ]
+    },
+    "scripts-descriptions": {
+        "infection": "Runs Infection tests",
+        "pest": "Runs Pest tests",
+        "phpcbf": "Runs PHP_CodeSniffer fixes",
+        "phpcs": "Runs PHP_CodeSniffer tests",
+        "phpstan": "Runs PHPStan tests",
+        "scan": "Runs all scans!",
+        "test": "Runs all tests!"
+    }
 }
