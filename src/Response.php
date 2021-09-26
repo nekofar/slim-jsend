@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Nekofar\Slim\JSend;
 
+use Psr\Http\Message\ResponseInterface as BaseResponseInterface;
 use Slim\Psr7\Response as BaseResponse;
 
 /**
@@ -21,7 +22,7 @@ final class Response implements ResponseInterface
     /**
      * The response to delegate to.
      *
-     * @var BaseResponse
+     * @var BaseResponseInterface
      */
     private $response;
 
@@ -33,9 +34,9 @@ final class Response implements ResponseInterface
     /**
      * Create a new response instance.
      */
-    public function __construct()
+    public function __construct(?BaseResponseInterface $response = null)
     {
-        $response = new BaseResponse();
+        $response = $response ?? new BaseResponse();
 
         $this->response = $response->withHeader(
             'Content-Type',
