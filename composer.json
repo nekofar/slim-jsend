@@ -1,26 +1,70 @@
 {
     "name": "nekofar/slim-jsend",
-    "description": "Slim Framework response helper for JSend specification.",
     "type": "library",
-    "require": {
-        "php": "^7.3 || ^8.0",
-        "slim/slim": "^4.8"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^9.5",
-        "phpstan/phpstan": "^0.12.99",
-        "phpstan/phpstan-phpunit": "^0.12.22"
-    },
+    "description": "Slim Framework response helper for JSend specification.",
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Nekofar\\Slim\\JSend\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "Milad Nekofar",
             "email": "milad@nekofar.com"
         }
-    ]
+    ],
+    "require": {
+        "php": "^7.3 || ^8.0",
+        "ext-json": "*",
+        "slim/psr7": "^1.5",
+        "slim/slim": "^4.8"
+    },
+    "require-dev": {
+        "nekofar/dev-tools": "^1.2",
+        "phpstan/phpstan-phpunit": "^0.12.22",
+        "phpstan/phpstan-strict-rules": "^0.12.11",
+        "roave/security-advisories": "dev-latest"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Nekofar\\Slim\\JSend\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "infection": "infection",
+        "lint": "@scan",
+        "pest": "pest",
+        "phpcbf": "phpcbf",
+        "phpcs": "phpcs",
+        "phpstan": "phpstan analyse --no-progress --ansi --memory-limit 256M",
+        "scan": [
+            "@phpcs",
+            "@phpstan"
+        ],
+        "test": [
+            "@scan",
+            "@pest"
+        ]
+    },
+    "scripts-descriptions": {
+        "infection": "Runs Infection tests",
+        "pest": "Runs Pest tests",
+        "phpcbf": "Runs PHP_CodeSniffer fixes",
+        "phpcs": "Runs PHP_CodeSniffer tests",
+        "phpstan": "Runs PHPStan tests",
+        "scan": "Runs all scans!",
+        "test": "Runs all tests!"
+    }
 }
