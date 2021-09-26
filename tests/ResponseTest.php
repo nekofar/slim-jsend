@@ -11,10 +11,12 @@ declare(strict_types=1);
 
 namespace Tests;
 
+use JsonException;
 use Nekofar\Slim\JSend\Payload;
 use Nekofar\Slim\JSend\PayloadStatus;
-use Nekofar\Slim\JSend\Response;
+use Nekofar\Slim\JSend\Response as JSendResponse;
 use PHPUnit\Framework\TestCase;
+use Slim\Psr7\Response;
 
 /**
  *
@@ -22,14 +24,14 @@ use PHPUnit\Framework\TestCase;
 class ResponseTest extends TestCase
 {
     /**
-     * @throws \JsonException
+     * @throws JsonException
      */
     public function testWithPayload(): void
     {
         $payload = new Payload(PayloadStatus::fromString(
             PayloadStatus::STATUS_SUCCESS,
         ));
-        $response = new Response();
+        $response = JSendResponse::fromResponse(new Response());
         $response = $response->withPayload($payload);
 
         self::assertTrue($response->hasHeader('Content-Type'));

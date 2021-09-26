@@ -11,18 +11,17 @@ declare(strict_types=1);
 
 namespace Nekofar\Slim\JSend;
 
-use Psr\Http\Message\ResponseInterface as BaseResponseInterface;
-use Slim\Psr7\Response as BaseResponse;
+use Psr\Http\Message\ResponseInterface;
 
 /**
- * @mixin BaseResponse
+ * @mixin \Slim\Psr7\Response
  */
-final class Response implements ResponseInterface
+final class Response
 {
     /**
      * The response to delegate to.
      *
-     * @var BaseResponseInterface
+     * @var ResponseInterface
      */
     private $response;
 
@@ -34,14 +33,22 @@ final class Response implements ResponseInterface
     /**
      * Create a new response instance.
      */
-    public function __construct(?BaseResponseInterface $response = null)
+    public function __construct(ResponseInterface $response)
     {
-        $response = $response ?? new BaseResponse();
-
         $this->response = $response->withHeader(
             'Content-Type',
             'application/json',
         );
+    }
+
+    /**
+     * Create a new Response from another response.
+     *
+     * @return static
+     */
+    public static function fromResponse(ResponseInterface $response)
+    {
+        return new self($response);
     }
 
     /**
@@ -54,8 +61,12 @@ final class Response implements ResponseInterface
 
     /**
      * Return an instance with the specified response payload.
+     *
+     * @return static
+     *
+     * @throws \JsonException
      */
-    public function withPayload(PayloadInterface $payload): ResponseInterface
+    public function withPayload(PayloadInterface $payload)
     {
         $this->payload = $payload;
 
