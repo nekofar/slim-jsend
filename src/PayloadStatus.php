@@ -11,6 +11,8 @@ declare(strict_types=1);
 
 namespace Nekofar\Slim\JSend;
 
+use InvalidArgumentException;
+
 /**
  *
  */
@@ -26,6 +28,15 @@ final class PayloadStatus
     private $name;
 
     /**
+     * @var array<string>
+     */
+    private static $validStates = [
+        self::STATUS_SUCCESS,
+        self::STATUS_FAIL,
+        self::STATUS_ERROR,
+    ];
+
+    /**
      *
      */
     public function __construct(string $name)
@@ -38,7 +49,19 @@ final class PayloadStatus
      */
     public static function fromString(string $status): self
     {
+        self::ensureIsValidName($status);
+
         return new self($status);
+    }
+
+    /**
+     * @throws InvalidArgumentException
+     */
+    private static function ensureIsValidName(string $status): void
+    {
+        if (!in_array($status, self::$validStates, true)) {
+            throw new InvalidArgumentException('Invalid status name given');
+        }
     }
 
     /**
