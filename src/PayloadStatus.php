@@ -26,7 +26,7 @@ final class PayloadStatus
     private $name;
 
     /**
-     * @param string $name
+     *
      */
     public function __construct(string $name)
     {
@@ -34,9 +34,7 @@ final class PayloadStatus
     }
 
     /**
-     * @param string $status
      *
-     * @return self
      */
     public static function fromString(string $status): self
     {
@@ -44,7 +42,7 @@ final class PayloadStatus
     }
 
     /**
-     * @return string
+     *
      */
     public function __toString(): string
     {

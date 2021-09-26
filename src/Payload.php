@@ -37,10 +37,7 @@ final class Payload implements PayloadInterface
     private $code;
 
     /**
-     * @param PayloadStatus $status
-     * @param mixed|null    $data
-     * @param string|null   $message
-     * @param integer|null  $code
+     * @param mixed|null $data
      */
     public function __construct(PayloadStatus $status, $data = null, ?string $message = null, ?int $code = null)
     {
@@ -52,8 +49,6 @@ final class Payload implements PayloadInterface
 
     /**
      * @param mixed|null $data
-     *
-     * @return self
      */
     public static function success($data = null): self
     {
@@ -62,8 +57,6 @@ final class Payload implements PayloadInterface
 
     /**
      * @param mixed|null $data
-     *
-     * @return self
      */
     public static function fail($data = null): self
     {
@@ -71,11 +64,7 @@ final class Payload implements PayloadInterface
     }
 
     /**
-     * @param string       $message
-     * @param integer|null $code
-     * @param mixed|null   $data
-     *
-     * @return self
+     * @param mixed|null $data
      */
     public static function error(string $message, ?int $code = null, $data = null): self
     {
@@ -91,15 +80,15 @@ final class Payload implements PayloadInterface
             'status' => $this->status,
         ];
 
-        if ($this->data !== null) {
+        if (null !== $this->data) {
             $payload['data'] = $this->data;
         }
 
-        if ($this->message !== null) {
+        if (null !== $this->message) {
             $payload['message'] = $this->code;
         }
 
-        if ($this->code !== null) {
+        if (null !== $this->code) {
             $payload['code'] = $this->code;
         }
 
