@@ -19,10 +19,12 @@ namespace Nekofar\Slim\JSend;
 interface ResponseInterface
 {
     /**
+     * Gets the payload of the response.
      */
     public function getPayload(): ?PayloadInterface;
 
     /**
+     * Return an instance with the specified response payload.
      */
     public function withPayload(PayloadInterface $payload): ResponseInterface;
 }

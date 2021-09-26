@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Nekofar\Slim\JSend;
 
-use JsonException;
 use Slim\Psr7\Response as BaseResponse;
 
 /**
@@ -33,8 +32,6 @@ final class Response implements ResponseInterface
 
     /**
      * Create a new response instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -47,21 +44,7 @@ final class Response implements ResponseInterface
     }
 
     /**
-     * @throws JsonException
-     */
-    public function withPayload(PayloadInterface $payload): ResponseInterface
-    {
-        $this->payload = $payload;
-
-        $this->response->getBody()->write(json_encode(
-            $this->payload,
-            JSON_THROW_ON_ERROR,
-        ));
-
-        return $this;
-    }
-
-    /**
+     * Gets the payload of the response.
      */
     public function getPayload(): ?PayloadInterface
     {
@@ -69,7 +52,21 @@ final class Response implements ResponseInterface
     }
 
     /**
-     * Proxies calls to the original client object.
+     * Return an instance with the specified response payload.
+     */
+    public function withPayload(PayloadInterface $payload): ResponseInterface
+    {
+        $this->payload = $payload;
+
+        $this->response->getBody()->write(
+            json_encode($this->payload, JSON_THROW_ON_ERROR),
+        );
+
+        return $this;
+    }
+
+    /**
+     * Proxies calls to the original response object.
      *
      * @param array<int, object|callable|null> $arguments
      *
