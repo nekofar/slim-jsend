@@ -35,12 +35,20 @@ final class Response
      */
     public function __construct(ResponseInterface $response)
     {
-        $response = $response ?? new BaseResponse();
-
         $this->response = $response->withHeader(
             'Content-Type',
             'application/json',
         );
+    }
+
+    /**
+     * Create a new Response from another response.
+     *
+     * @return static
+     */
+    public static function fromResponse(ResponseInterface $response)
+    {
+        return new self($response);
     }
 
     /**
@@ -53,6 +61,10 @@ final class Response
 
     /**
      * Return an instance with the specified response payload.
+     *
+     * @return static
+     *
+     * @throws \JsonException
      */
     public function withPayload(PayloadInterface $payload)
     {
