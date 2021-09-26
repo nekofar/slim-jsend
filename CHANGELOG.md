@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.1] - 2021-09-26
+
+### Refactor
+
+- Update and cleanup comments
+
 ## [1.0.0-alpha.0] - 2021-09-26
 
 ### Documentation
