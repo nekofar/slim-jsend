@@ -1,8 +1,8 @@
 {
     "name": "nekofar/slim-jsend",
-    "type": "library",
     "description": "Slim Framework response helper for JSend specification.",
     "license": "MIT",
+    "type": "library",
     "authors": [
         {
             "name": "Milad Nekofar",
@@ -21,15 +21,8 @@
         "phpstan/phpstan-strict-rules": "^0.12.11",
         "roave/security-advisories": "dev-latest"
     },
-    "config": {
-        "preferred-install": "dist",
-        "sort-packages": true
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.x-dev"
-        }
-    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Nekofar\\Slim\\JSend\\": "src/"
@@ -40,8 +33,21 @@
             "Tests\\": "tests/"
         }
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "infection/extension-installer": true,
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        },
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    },
     "scripts": {
         "infection": "infection",
         "lint": "@scan",

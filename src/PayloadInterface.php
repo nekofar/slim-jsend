@@ -18,5 +18,4 @@ use JsonSerializable;
  */
 interface PayloadInterface extends JsonSerializable
 {
-
 }

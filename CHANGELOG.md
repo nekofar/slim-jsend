@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Miscellaneous Tasks
+
+- Update `config.allow-plugins` on the `composer` configs
+- Normalize the `composer` configuation
+
+### Styling
+
+- Remove blank line on `PayloadInterface`
+
+## [1.0.0-alpha.5] - 2022-03-20
+
 ### Documentation
 
 - Improve the dependabot configuration file
