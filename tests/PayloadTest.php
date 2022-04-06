@@ -18,7 +18,7 @@ use PHPUnit\Framework\TestCase;
 /**
  *
  */
-class PayloadTest extends TestCase
+final class PayloadTest extends TestCase
 {
     /**
      *

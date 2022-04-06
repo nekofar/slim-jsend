@@ -21,7 +21,7 @@ use Slim\Psr7\Response;
 /**
  *
  */
-class ResponseTest extends TestCase
+final class ResponseTest extends TestCase
 {
     /**
      * @throws JsonException
