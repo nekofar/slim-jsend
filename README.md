@@ -36,10 +36,10 @@ The MIT License (MIT). Please see [License File](LICENSE) for more information.
 ---
 [icon-packagist]: https://img.shields.io/packagist/v/nekofar/slim-jsend.svg
 [icon-php-version]: https://img.shields.io/packagist/php-v/nekofar/slim-jsend.svg
-[icon-twitter]: https://img.shields.io/twitter/follow/nekofar.svg?style=flat
+[icon-twitter]: https://img.shields.io/badge/follow-%40nekofar-1DA1F2?logo=twitter&style=flat
 [icon-coverage]: https://codecov.io/gh/nekofar/slim-jsend/graph/badge.svg
 [icon-license]: https://img.shields.io/github/license/nekofar/slim-jsend.svg
-[icon-workflow]: https://img.shields.io/github/workflow/status/nekofar/slim-jsend/Tests
+[icon-workflow]: https://img.shields.io/github/actions/workflow/status/nekofar/slim-jsend/tests.yml
 
 [link-packagist]: https://packagist.org/packages/nekofar/slim-jsend
 [link-twitter]: https://twitter.com/nekofar
