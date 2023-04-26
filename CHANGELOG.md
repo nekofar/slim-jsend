@@ -1,7 +1,27 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [1.0.0-alpha.9] - 2023-04-26
+
+### Documentation
+
+- Update badge icons over readme file
+
+### Miscellaneous Tasks
+
+- Drop support for php version 7.3
+
+## [1.0.0-alpha.7] - 2022-04-06
+
+### Miscellaneous Tasks
+
+- Update `config.allow-plugins` on the `composer` configs
+
+### Refactor
+
+- Change missed test classes to `final`
+
+## [1.0.0-alpha.6] - 2022-03-20
 
 ### Miscellaneous Tasks
 
