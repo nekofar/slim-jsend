@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Nekofar\Slim\JSend;
 
+use JsonException;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -18,37 +19,20 @@ use Psr\Http\Message\ResponseInterface;
  */
 final class Response
 {
-    /**
-     * The response to delegate to.
-     *
-     * @var ResponseInterface
-     */
-    private $response;
+    private ResponseInterface $response;
 
-    /**
-     * @var PayloadInterface
-     */
-    private $payload;
+    private PayloadInterface $payload;
 
     /**
      * Create a new response instance.
      */
-    public function __construct(ResponseInterface $response)
-    {
+    public function __construct(
+        ResponseInterface $response,
+    ) {
         $this->response = $response->withHeader(
             'Content-Type',
             'application/json',
         );
-    }
-
-    /**
-     * Create a new Response from another response.
-     *
-     * @return static
-     */
-    public static function fromResponse(ResponseInterface $response)
-    {
-        return new self($response);
     }
 
     /**
@@ -62,11 +46,9 @@ final class Response
     /**
      * Return an instance with the specified response payload.
      *
-     * @return static
-     *
-     * @throws \JsonException
+     * @throws JsonException
      */
-    public function withPayload(PayloadInterface $payload)
+    public function withPayload(PayloadInterface $payload): self
     {
         $this->payload = $payload;
 
@@ -78,13 +60,21 @@ final class Response
     }
 
     /**
+     * Create a new Response from another response.
+     *
+     * @return static
+     */
+    public static function fromResponse(ResponseInterface $response): static
+    {
+        return new self($response);
+    }
+
+    /**
      * Proxies calls to the original response object.
      *
      * @param array<int, object|callable|null> $arguments
-     *
-     * @return void|object|boolean
      */
-    public function __call(string $method, array $arguments)
+    public function __call(string $method, array $arguments): mixed
     {
         /* @phpstan-ignore-next-line */
         return $this->response->{$method}(...$arguments);

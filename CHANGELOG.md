@@ -1,6 +1,19 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.10] - 2023-04-27
+
+### Miscellaneous Tasks
+
+- Bump `php` version from `^7.4 || ^8.0` to `>=8.1`
+- Bump `phpstan` from `^0.12` to `^1.0`
+- Bump nekofar/dev-tools from ^1.2 to ^3.0
+- Migrate phpunit configuration file
+
+### Styling
+
+- Update some coding styles issues
+
 ## [1.0.0-alpha.9] - 2023-04-26
 
 ### Documentation
