@@ -17,8 +17,8 @@
     },
     "require-dev": {
         "nekofar/dev-tools": "^1.2",
-        "phpstan/phpstan-phpunit": "^0.12.22",
-        "phpstan/phpstan-strict-rules": "^0.12.11",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpstan/phpstan-strict-rules": "^1.0",
         "roave/security-advisories": "dev-latest"
     },
     "minimum-stability": "dev",
