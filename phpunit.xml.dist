@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.1/phpunit.xsd"
          colors="true"
-         testdox="false">
-    <coverage processUncoveredFiles="true">
-        <include>
-            <directory suffix=".php">src</directory>
-        </include>
+         testdox="false"
+         cacheDirectory=".phpunit.cache">
+    <coverage>
         <report>
             <clover outputFile="clover.xml"/>
         </report>
@@ -17,4 +15,9 @@
         </testsuite>
     </testsuites>
     <logging/>
+    <source>
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+    </source>
 </phpunit>
