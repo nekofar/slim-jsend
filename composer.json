@@ -12,11 +12,11 @@
     "require": {
         "php": ">=8.1",
         "ext-json": "*",
-        "slim/psr7": "^1.5",
-        "slim/slim": "^4.8"
+        "slim/psr7": "^1.6",
+        "slim/slim": "^4.11"
     },
     "require-dev": {
-        "nekofar/dev-tools": "^3.0",
+        "nekofar/dev-tools": "^3.1",
         "phpstan/phpstan-phpunit": "^1.0",
         "phpstan/phpstan-strict-rules": "^1.0",
         "roave/security-advisories": "dev-latest"
