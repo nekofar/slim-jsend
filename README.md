@@ -34,7 +34,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 The MIT License (MIT). Please see [License File](LICENSE) for more information.
 
 ---
-[icon-packagist]: https://img.shields.io/packagist/v/nekofar/slim-jsend.svg
+[icon-packagist]: https://img.shields.io/packagist/v/nekofar/slim-jsend?include_prereleases
 [icon-php-version]: https://img.shields.io/packagist/php-v/nekofar/slim-jsend.svg
 [icon-twitter]: https://img.shields.io/badge/follow-%40nekofar-1DA1F2?logo=twitter&style=flat
 [icon-coverage]: https://codecov.io/gh/nekofar/slim-jsend/graph/badge.svg
