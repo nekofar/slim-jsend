@@ -13,7 +13,7 @@
         "php": ">=8.1",
         "ext-json": "*",
         "slim/psr7": "^1.6",
-        "slim/slim": "^4.8"
+        "slim/slim": "^4.11"
     },
     "require-dev": {
         "nekofar/dev-tools": "^3.1",
