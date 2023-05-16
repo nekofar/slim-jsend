@@ -23,14 +23,9 @@ final class PayloadStatus
     public const STATUS_ERROR = 'error';
 
     /**
-     * @var string
-     */
-    private $name;
-
-    /**
      * @var array<string>
      */
-    private static $validStates = [
+    private static array $validStates = [
         self::STATUS_SUCCESS,
         self::STATUS_FAIL,
         self::STATUS_ERROR,
@@ -39,9 +34,8 @@ final class PayloadStatus
     /**
      *
      */
-    public function __construct(string $name)
+    public function __construct(private string $name)
     {
-        $this->name = $name;
     }
 
     /**
