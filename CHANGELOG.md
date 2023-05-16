@@ -1,6 +1,19 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.12] - 2023-05-16
+
+### Documentation
+
+- Update packagist badges over readme file
+
+### Miscellaneous Tasks
+
+- Bump nekofar/dev-tools from ^3.0 to ^3.1
+- Bump slim/psr7 from ^1.5 to ^1.6
+- Bump slim/slim from ^4.8 to ^4.11
+- Migrate phpunit configuration file
+
 ## [1.0.0-alpha.10] - 2023-04-27
 
 ### Miscellaneous Tasks
