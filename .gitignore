@@ -4,3 +4,5 @@ vendor
 .phpunit.result.cache
 clover.xml
 infection.log
+*.bak
+.phpunit.cache

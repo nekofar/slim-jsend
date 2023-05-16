@@ -16,57 +16,31 @@ namespace Nekofar\Slim\JSend;
  */
 final class Payload implements PayloadInterface
 {
-    /**
-     * @var PayloadStatus
-     */
-    private $status;
-
-    /**
-     * @var mixed|null
-     */
-    private $data;
-
-    /**
-     * @var string|null
-     */
-    private $message;
-
-    /**
-     * @var integer|null
-     */
-    private $code;
-
-    /**
-     * @param mixed|null $data
-     */
-    public function __construct(PayloadStatus $status, $data = null, ?string $message = null, ?int $code = null)
-    {
-        $this->status = $status;
-        $this->data = $data;
-        $this->message = $message;
-        $this->code = $code;
+    public function __construct(
+        private readonly PayloadStatus $status,
+        private readonly mixed $data = null,
+        private readonly ?string $message = null,
+        private readonly ?int $code = null,
+    ) {
     }
 
     /**
-     * @param mixed|null $data
      */
-    public static function success($data = null): self
+    public static function success(mixed $data = null): self
     {
         return new self(PayloadStatus::fromString(PayloadStatus::STATUS_SUCCESS), $data);
     }
 
     /**
-     * @param mixed|null $data
      */
-    public static function fail($data = null): self
+    public static function fail(mixed $data = null): self
     {
         return new self(PayloadStatus::fromString(PayloadStatus::STATUS_FAIL), $data);
     }
 
     /**
-     * @param mixed|null $data
      */
-    public static function error(string $message, ?int $code = null, $data = null): self
+    public static function error(string $message, ?int $code = null, mixed $data = null): self
     {
         return new self(PayloadStatus::fromString(PayloadStatus::STATUS_ERROR), $data, $message, $code);
     }

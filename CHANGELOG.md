@@ -1,7 +1,53 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [1.0.0-alpha.12] - 2023-05-16
+
+### Documentation
+
+- Update packagist badges over readme file
+
+### Miscellaneous Tasks
+
+- Bump nekofar/dev-tools from ^3.0 to ^3.1
+- Bump slim/psr7 from ^1.5 to ^1.6
+- Bump slim/slim from ^4.8 to ^4.11
+- Migrate phpunit configuration file
+
+## [1.0.0-alpha.10] - 2023-04-27
+
+### Miscellaneous Tasks
+
+- Bump `php` version from `^7.4 || ^8.0` to `>=8.1`
+- Bump `phpstan` from `^0.12` to `^1.0`
+- Bump nekofar/dev-tools from ^1.2 to ^3.0
+- Migrate phpunit configuration file
+
+### Styling
+
+- Update some coding styles issues
+
+## [1.0.0-alpha.9] - 2023-04-26
+
+### Documentation
+
+- Update badge icons over readme file
+
+### Miscellaneous Tasks
+
+- Drop support for php version 7.3
+
+## [1.0.0-alpha.7] - 2022-04-06
+
+### Miscellaneous Tasks
+
+- Update `config.allow-plugins` on the `composer` configs
+
+### Refactor
+
+- Change missed test classes to `final`
+
+## [1.0.0-alpha.6] - 2022-03-20
 
 ### Miscellaneous Tasks
 
