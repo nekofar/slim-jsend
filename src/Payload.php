@@ -59,7 +59,7 @@ final class Payload implements PayloadInterface
         }
 
         if (null !== $this->message) {
-            $payload['message'] = $this->code;
+            $payload['message'] = $this->message;
         }
 
         if (null !== $this->code) {
