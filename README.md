@@ -22,9 +22,26 @@ Requires Slim Framework 4 and PHP 8.1 or newer.
 ## Usage
 
 ```php
+use Nekofar\Slim\JSend\ResponseFactoryDecorator;
 
+$responseFactoryDecorator = new ResponseFactoryDecorator(/* ... */);
+$response = $responseFactoryDecorator->createResponse();
+
+// Set success payload
+$response = $response->withSuccessPayload($data);
+echo $response->getBody()->getContents(); // The response body
 ```
 
+The resulting response will have the HTTP status code 200 OK and the JSON payload in the JSend format:
+
+```json lines
+{
+  "status": "success",
+  "data": {
+    /* Your data here */
+  }
+}
+```
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
