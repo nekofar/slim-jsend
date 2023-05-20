@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.18] - 2023-05-20
+
+### Documentation
+
+- Create a new pull request template
+- Update and improve classes and methods doc-blocks
+
 ## [1.0.0-alpha.17] - 2023-05-20
 
 ### Documentation
