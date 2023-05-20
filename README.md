@@ -17,7 +17,7 @@ To get started, install the package using composer:
 composer require nekofar/slim-jsend
 ```
 
-Requires Slim Framework 4 and PHP 7.3 or newer.
+Requires Slim Framework 4 and PHP 8.1 or newer.
 
 ## Usage
 
