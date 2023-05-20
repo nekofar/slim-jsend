@@ -1,11 +1,22 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.17] - 2023-05-20
+
+### Documentation
+
+- Add missing contribution guideline
+- Add basic usage sample into readme file
+
 ## [1.0.0-alpha.16] - 2023-05-20
 
 ### Documentation
 
 - Change minimum version to php 8.1 on readme
+
+### Miscellaneous Tasks
+
+- Install pnpm as a peoject dev-dependency
 
 ## [1.0.0-alpha.15] - 2023-05-20
 
