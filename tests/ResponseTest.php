@@ -11,34 +11,120 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use JsonException;
 use Nekofar\Slim\JSend\Payload;
-use Nekofar\Slim\JSend\PayloadStatus;
-use Nekofar\Slim\JSend\Response as JSendResponse;
+use Nekofar\Slim\JSend\Response;
+use Nekofar\Slim\JSend\ResponseFactoryDecorator;
 use PHPUnit\Framework\TestCase;
-use Slim\Psr7\Response;
+use Psr\Http\Message\ResponseFactoryInterface;
+use Slim\Psr7\Factory\ResponseFactory;
+use Slim\Psr7\Factory\StreamFactory;
 
 /**
  *
  */
 final class ResponseTest extends TestCase
 {
-    /**
-     * @throws JsonException
-     */
+    private ResponseFactoryInterface $responseFactory;
+
     public function testWithPayload(): void
     {
-        $payload = new Payload(PayloadStatus::fromString(
-            PayloadStatus::STATUS_SUCCESS,
-        ));
-        $response = JSendResponse::fromResponse(new Response());
-        $response = $response->withPayload($payload);
+        $data = ['foo' => 'bar'];
+        $payload = Payload::success($data);
 
-        self::assertTrue($response->hasHeader('Content-Type'));
-        self::assertSame('application/json', $response->getHeaderLine('Content-Type'));
+        /** @var Response $originalResponse */
+        $originalResponse = $this->responseFactory->createResponse();
+        $response = $originalResponse->withPayload($payload);
 
-        self::assertEquals($payload, $response->getPayload());
-        self::assertSame(json_encode($payload), (string) $response->getBody());
-        self::assertSame(json_encode($payload), json_encode($response->getPayload()));
+        self::assertEquals($originalResponse->getStatusCode(), $response->getStatusCode());
+        self::assertEquals('application/json', $response->getHeaderLine('Content-Type'));
+
+        $body = $response->getBody();
+        $body->rewind();
+        $dataJson = $body->getContents();
+
+        $originalBody = $originalResponse->getBody();
+        $originalBody->rewind();
+        $originalContents = $originalBody->getContents();
+
+        // Test that the original body hasn't been replaced
+        self::assertNotEquals($dataJson, $originalContents);
+        self::assertEquals('{"status":"success","data":{"foo":"bar"}}', $dataJson);
+
+        $response = $response->withStatus(201)->withJson([]);
+        self::assertEquals(201, $response->getStatusCode());
+    }
+
+    public function testWithSuccessPayload(): void
+    {
+        /** @var Response $originalResponse */
+        $originalResponse = $this->responseFactory->createResponse();
+        $response = $originalResponse->withSuccessPayload(['foo' => 'bar']);
+
+        self::assertEquals($originalResponse->getStatusCode(), $response->getStatusCode());
+        self::assertEquals('application/json', $response->getHeaderLine('Content-Type'));
+
+        $body = $response->getBody();
+        $body->rewind();
+        $dataJson = $body->getContents();
+
+        $originalBody = $originalResponse->getBody();
+        $originalBody->rewind();
+        $originalContents = $originalBody->getContents();
+
+        // Test that the original body hasn't been replaced
+        self::assertNotEquals($dataJson, $originalContents);
+        self::assertEquals('{"status":"success","data":{"foo":"bar"}}', $dataJson);
+    }
+
+    public function testWithFailPayload(): void
+    {
+        /** @var Response $originalResponse */
+        $originalResponse = $this->responseFactory->createResponse();
+        $response = $originalResponse->withFailPayload(['foo' => 'bar']);
+
+        self::assertEquals($originalResponse->getStatusCode(), $response->getStatusCode());
+        self::assertEquals('application/json', $response->getHeaderLine('Content-Type'));
+
+        $body = $response->getBody();
+        $body->rewind();
+        $dataJson = $body->getContents();
+
+        $originalBody = $originalResponse->getBody();
+        $originalBody->rewind();
+        $originalContents = $originalBody->getContents();
+
+        // Test that the original body hasn't been replaced
+        self::assertNotEquals($dataJson, $originalContents);
+        self::assertEquals('{"status":"fail","data":{"foo":"bar"}}', $dataJson);
+    }
+
+    public function testWithErrorPayload(): void
+    {
+        /** @var Response $originalResponse */
+        $originalResponse = $this->responseFactory->createResponse();
+        $response = $originalResponse->withErrorPayload('An error occurred', 5, ['foo' => 'bar']);
+
+        self::assertEquals($originalResponse->getStatusCode(), $response->getStatusCode());
+        self::assertEquals('application/json', $response->getHeaderLine('Content-Type'));
+
+        $body = $response->getBody();
+        $body->rewind();
+        $dataJson = $body->getContents();
+
+        $originalBody = $originalResponse->getBody();
+        $originalBody->rewind();
+        $originalContents = $originalBody->getContents();
+
+        // Test that the original body hasn't been replaced
+        self::assertNotEquals($dataJson, $originalContents);
+        self::assertEquals('{"status":"error","data":{"foo":"bar"},"message":"An error occurred","code":5}', $dataJson);
+    }
+
+    protected function setUp(): void
+    {
+        $this->responseFactory = new ResponseFactoryDecorator(
+            new ResponseFactory(),
+            new StreamFactory(),
+        );
     }
 }
