@@ -11,72 +11,45 @@ declare(strict_types=1);
 
 namespace Nekofar\Slim\JSend;
 
-use JsonException;
-use Psr\Http\Message\ResponseInterface;
+use Slim\Http\Response as DecoratedResponse;
 
-/**
- * @mixin \Slim\Psr7\Response
- */
-final class Response
+final class Response extends DecoratedResponse
 {
-    private ResponseInterface $response;
-
-    private PayloadInterface $payload;
-
-    /**
-     * Create a new response instance.
-     */
-    public function __construct(
-        ResponseInterface $response,
-    ) {
-        $this->response = $response->withHeader(
-            'Content-Type',
-            'application/json',
-        );
-    }
-
-    /**
-     * Gets the payload of the response.
-     */
-    public function getPayload(): ?PayloadInterface
-    {
-        return $this->payload;
-    }
-
     /**
      * Return an instance with the specified response payload.
-     *
-     * @throws JsonException
      */
     public function withPayload(PayloadInterface $payload): self
     {
-        $this->payload = $payload;
-
-        $this->response->getBody()->write(
-            json_encode($this->payload, JSON_THROW_ON_ERROR),
-        );
-
-        return $this;
+        return $this->withJson($payload);
     }
 
     /**
-     * Create a new Response from another response.
-     *
-     * @return static
+     * Set the response payload as a success.
      */
-    public static function fromResponse(ResponseInterface $response): static
+    public function withSuccessPayload(mixed $data = null): self
     {
-        return new self($response);
+        $payload = Payload::success($data);
+
+        return $this->withPayload($payload);
     }
 
     /**
-     * Proxies calls to the original response object.
-     *
-     * @param array<int, object|callable|null> $arguments
+     * Set the response payload as a failure.
      */
-    public function __call(string $method, array $arguments): mixed
+    public function withFailPayload(mixed $data = null): self
     {
-        /* @phpstan-ignore-next-line */
-        return $this->response->{$method}(...$arguments);
+        $payload = Payload::fail($data);
+
+        return $this->withPayload($payload);
+    }
+
+    /**
+     * Set the response payload as an error.
+     */
+    public function withErrorPayload(string $message, ?int $code = null, mixed $data = null): self
+    {
+        $payload = Payload::error($message, $code, $data);
+
+        return $this->withPayload($payload);
     }
 }
