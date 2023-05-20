@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.16] - 2023-05-20
+
+### Documentation
+
+- Change minimum version to php 8.1 on readme
+
 ## [1.0.0-alpha.15] - 2023-05-20
 
 ### Bug Fixes
@@ -16,6 +22,7 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous Tasks
 
 - Install slim/http as a dependency
+- Install pnpm as a peoject dev-dependency
 
 ### Testing
 

@@ -23,6 +23,7 @@ jobs:
         php-version: ${{ matrix.php }}
         tools: composer:v2
         coverage: xdebug
+        extensions: json,fileinfo
 
     - name: Setup problem matches
       run: |
