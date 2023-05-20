@@ -1,6 +1,26 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.15] - 2023-05-20
+
+### Bug Fixes
+
+- Solve an issue on `message` in `Payload` json
+- Solve json decode of `PayloadStatus`
+
+### Features
+
+- Create a decorator for response factory
+- Add new method to send response with jsend spec
+
+### Miscellaneous Tasks
+
+- Install slim/http as a dependency
+
+### Testing
+
+- Create new tests for `Response` and improve old tests
+
 ## [1.0.0-alpha.14] - 2023-05-16
 
 ### Bug Fixes

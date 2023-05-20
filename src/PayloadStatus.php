@@ -12,11 +12,12 @@ declare(strict_types=1);
 namespace Nekofar\Slim\JSend;
 
 use InvalidArgumentException;
+use JsonSerializable;
 
 /**
  *
  */
-final class PayloadStatus
+final class PayloadStatus implements JsonSerializable
 {
     public const STATUS_SUCCESS = 'success';
     public const STATUS_FAIL = 'fail';
@@ -46,6 +47,11 @@ final class PayloadStatus
         self::ensureIsValidName($status);
 
         return new self($status);
+    }
+
+    public function jsonSerialize(): string
+    {
+        return $this->name;
     }
 
     /**
