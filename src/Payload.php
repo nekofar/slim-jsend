@@ -12,10 +12,20 @@ declare(strict_types=1);
 namespace Nekofar\Slim\JSend;
 
 /**
+ * Class Payload
  *
+ * Represents the payload of a JSend response.
  */
 final class Payload implements PayloadInterface
 {
+    /**
+     * Payload constructor.
+     *
+     * @param PayloadStatus $status The status of the payload.
+     * @param mixed|null $data The data of the payload.
+     * @param string|null $message The message of the payload.
+     * @param integer|null $code The code of the payload.
+     */
     public function __construct(
         private readonly PayloadStatus $status,
         private readonly mixed $data = null,
@@ -25,6 +35,11 @@ final class Payload implements PayloadInterface
     }
 
     /**
+     * Create a success payload.
+     *
+     * @param mixed|null $data The data of the payload.
+     *
+     * @return self The created success payload.
      */
     public static function success(mixed $data = null): self
     {
@@ -32,6 +47,11 @@ final class Payload implements PayloadInterface
     }
 
     /**
+     * Create a fail payload.
+     *
+     * @param mixed|null $data The data of the payload.
+     *
+     * @return self The created fail payload.
      */
     public static function fail(mixed $data = null): self
     {
@@ -39,6 +59,13 @@ final class Payload implements PayloadInterface
     }
 
     /**
+     * Create an error payload.
+     *
+     * @param string $message The message of the payload.
+     * @param integer|null $code The code of the payload.
+     * @param mixed|null $data The data of the payload.
+     *
+     * @return self The created error payload.
      */
     public static function error(string $message, ?int $code = null, mixed $data = null): self
     {
@@ -46,7 +73,9 @@ final class Payload implements PayloadInterface
     }
 
     /**
-     * @return array<string, mixed>
+     * Convert the payload to its array representation for JSON serialization.
+     *
+     * @return array<string, mixed> The array representation of the payload.
      */
     public function jsonSerialize(): array
     {

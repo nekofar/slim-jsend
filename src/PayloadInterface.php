@@ -14,8 +14,11 @@ namespace Nekofar\Slim\JSend;
 use JsonSerializable;
 
 /**
+ * Interface PayloadInterface
  *
+ * Represents the payload of a JSend response.
  */
 interface PayloadInterface extends JsonSerializable
 {
+    // No additional methods defined in the interface
 }

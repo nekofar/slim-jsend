@@ -17,6 +17,8 @@ final class Response extends DecoratedResponse
 {
     /**
      * Return an instance with the specified response payload.
+     *
+     * @param PayloadInterface $payload The response payload.
      */
     public function withPayload(PayloadInterface $payload): self
     {
@@ -25,6 +27,8 @@ final class Response extends DecoratedResponse
 
     /**
      * Set the response payload as a success.
+     *
+     * @param mixed|null $data The success data.
      */
     public function withSuccessPayload(mixed $data = null): self
     {
@@ -35,6 +39,8 @@ final class Response extends DecoratedResponse
 
     /**
      * Set the response payload as a failure.
+     *
+     * @param mixed|null $data The failure data.
      */
     public function withFailPayload(mixed $data = null): self
     {
@@ -45,6 +51,10 @@ final class Response extends DecoratedResponse
 
     /**
      * Set the response payload as an error.
+     *
+     * @param string $message The error message.
+     * @param integer|null $code The error code.
+     * @param mixed|null $data The error data.
      */
     public function withErrorPayload(string $message, ?int $code = null, mixed $data = null): self
     {
