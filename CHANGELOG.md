@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.20] - 2023-07-01
+
+### Documentation
+
+- Update crypto funding address over configs
+- Add funding to the composer configs
+- Add crypto donate badge to the project readme
+
 ## [1.0.0-alpha.19] - 2023-06-16
 
 ### Bug Fixes
