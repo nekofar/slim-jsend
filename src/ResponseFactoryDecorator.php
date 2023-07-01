@@ -25,7 +25,7 @@ final class ResponseFactoryDecorator implements ResponseFactoryInterface
     /**
      * Create a new response instance with the specified status code and reason phrase.
      *
-     * @param integer $code The status code for the response.
+     * @param int $code The status code for the response.
      * @param string $reasonPhrase The reason phrase associated with the status code.
      *
      * @return ResponseInterface The newly created response instance.

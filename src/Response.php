@@ -53,7 +53,7 @@ final class Response extends DecoratedResponse
      * Set the response payload as an error.
      *
      * @param string $message The error message.
-     * @param integer|null $code The error code.
+     * @param int|null $code The error code.
      * @param mixed|null $data The error data.
      */
     public function withErrorPayload(string $message, ?int $code = null, mixed $data = null): self

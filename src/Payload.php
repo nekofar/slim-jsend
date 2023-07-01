@@ -24,7 +24,7 @@ final class Payload implements PayloadInterface
      * @param PayloadStatus $status The status of the payload.
      * @param mixed|null $data The data of the payload.
      * @param string|null $message The message of the payload.
-     * @param integer|null $code The code of the payload.
+     * @param int|null $code The code of the payload.
      */
     public function __construct(
         private readonly PayloadStatus $status,
@@ -62,7 +62,7 @@ final class Payload implements PayloadInterface
      * Create an error payload.
      *
      * @param string $message The message of the payload.
-     * @param integer|null $code The code of the payload.
+     * @param int|null $code The code of the payload.
      * @param mixed|null $data The data of the payload.
      *
      * @return self The created error payload.
