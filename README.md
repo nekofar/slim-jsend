@@ -6,6 +6,7 @@
 [![Coverage Status][icon-coverage]][link-coverage]
 [![License][icon-license]][link-license]
 [![Twitter: nekofar][icon-twitter]][link-twitter]
+[![Donate](https://img.shields.io/badge/donate-nekofar.crypto-a2b9bc?logo=ko-fi&logoColor=white)](https://ud.me/nekofar.crypto)
 
 > Slim Framework response helper for JSend specification.
 
